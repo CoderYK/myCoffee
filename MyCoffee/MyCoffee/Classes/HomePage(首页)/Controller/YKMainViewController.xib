@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YKMainViewController">
+            <connections>
+                <outlet property="myBarbar" destination="LaR-9T-SSa" id="rhN-M9-VSl"/>
+                <outlet property="view" destination="j2W-kg-A5f" id="GKO-ee-QPM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="j2W-kg-A5f" userLabel="newView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Krb-td-BGR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAH-HD-YQq">
+                    <rect key="frame" x="55" y="80" width="340" height="468"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nz-Gn-0bu" userLabel="menu">
+                            <rect key="frame" x="0.0" y="162" width="340" height="144"/>
+                            <state key="normal" backgroundImage="main_c2"/>
+                            <connections>
+                                <action selector="newsBtnClick:" destination="-1" eventType="touchUpInside" id="GpC-bX-m5c"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVM-8N-7Bb" userLabel="news">
+                            <rect key="frame" x="0.0" y="326" width="340" height="142"/>
+                            <state key="normal" backgroundImage="main_c3"/>
+                            <connections>
+                                <action selector="GPSBtnClick:" destination="-1" eventType="touchUpInside" id="kwY-da-Gd5"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37c-dP-f52" userLabel="gps">
+                            <rect key="frame" x="0.0" y="0.0" width="340" height="142"/>
+                            <state key="normal" backgroundImage="main_c1"/>
+                            <connections>
+                                <action selector="menuBtnClick:" destination="-1" eventType="touchUpInside" id="o0P-E6-Ouq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="37c-dP-f52" secondAttribute="trailing" id="6V7-gc-mft"/>
+                        <constraint firstAttribute="trailing" secondItem="2Nz-Gn-0bu" secondAttribute="trailing" id="7BC-Xt-OgQ"/>
+                        <constraint firstItem="2Nz-Gn-0bu" firstAttribute="height" secondItem="37c-dP-f52" secondAttribute="height" constant="1" id="D3g-mY-BSJ"/>
+                        <constraint firstAttribute="bottom" secondItem="gVM-8N-7Bb" secondAttribute="bottom" id="J6k-Pa-WXO"/>
+                        <constraint firstItem="gVM-8N-7Bb" firstAttribute="leading" secondItem="qAH-HD-YQq" secondAttribute="leading" id="KKy-WS-Hjk"/>
+                        <constraint firstItem="37c-dP-f52" firstAttribute="leading" secondItem="qAH-HD-YQq" secondAttribute="leading" id="KtV-H9-7KP"/>
+                        <constraint firstItem="gVM-8N-7Bb" firstAttribute="height" secondItem="2Nz-Gn-0bu" secondAttribute="height" constant="-1" id="PcN-jH-iiz"/>
+                        <constraint firstItem="2Nz-Gn-0bu" firstAttribute="leading" secondItem="qAH-HD-YQq" secondAttribute="leading" id="PvN-Br-ttl"/>
+                        <constraint firstItem="gVM-8N-7Bb" firstAttribute="top" secondItem="2Nz-Gn-0bu" secondAttribute="bottom" constant="20" id="YSi-sd-Xrz"/>
+                        <constraint firstAttribute="trailing" secondItem="gVM-8N-7Bb" secondAttribute="trailing" id="YZN-9I-Y1s"/>
+                        <constraint firstItem="2Nz-Gn-0bu" firstAttribute="top" secondItem="37c-dP-f52" secondAttribute="bottom" constant="20" id="b4a-oV-Kam"/>
+                        <constraint firstItem="37c-dP-f52" firstAttribute="top" secondItem="qAH-HD-YQq" secondAttribute="top" id="gBd-mT-yNH"/>
+                    </constraints>
+                </view>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaR-9T-SSa" customClass="YKTabBar">
+                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="5fr-4U-xiv"/>
+                    </constraints>
+                    <items>
+                        <tabBarItem title="我的订单" image="main_b1" id="b3m-nv-u5j" customClass="YKTabBarItem"/>
+                        <tabBarItem tag="1" title="联系我们" image="main_b2" id="dBB-yY-8O7" customClass="YKTabBarItem"/>
+                        <tabBarItem tag="2" title="我的统计" image="main_b3" id="pDw-5d-vTz" customClass="YKTabBarItem"/>
+                        <tabBarItem tag="3" title="我要外卖" image="main_b4" id="9KO-HC-B5w" customClass="YKTabBarItem"/>
+                    </items>
+                    <color key="barTintColor" red="0.93725490196078431" green="0.84313725490196079" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="selectedImageTintColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                </tabBar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="LaR-9T-SSa" secondAttribute="trailing" id="0g2-ZG-llX"/>
+                <constraint firstItem="Krb-td-BGR" firstAttribute="top" secondItem="j2W-kg-A5f" secondAttribute="top" id="2Ux-BA-bEc"/>
+                <constraint firstItem="LaR-9T-SSa" firstAttribute="bottom" secondItem="Krb-td-BGR" secondAttribute="bottom" id="8dp-hq-hFv"/>
+                <constraint firstItem="LaR-9T-SSa" firstAttribute="leading" secondItem="Krb-td-BGR" secondAttribute="leading" id="8wj-Mz-hkq"/>
+                <constraint firstItem="LaR-9T-SSa" firstAttribute="trailing" secondItem="Krb-td-BGR" secondAttribute="trailing" id="AdN-Pt-3xa"/>
+                <constraint firstItem="qAH-HD-YQq" firstAttribute="top" secondItem="j2W-kg-A5f" secondAttribute="top" constant="80" id="FhU-Oe-wDn"/>
+                <constraint firstItem="LaR-9T-SSa" firstAttribute="top" secondItem="qAH-HD-YQq" secondAttribute="bottom" constant="70" id="Kfw-H3-dZU"/>
+                <constraint firstAttribute="bottom" secondItem="LaR-9T-SSa" secondAttribute="bottom" id="Obk-Ga-FFa"/>
+                <constraint firstAttribute="trailing" secondItem="qAH-HD-YQq" secondAttribute="trailing" constant="-20" id="Z0O-8y-wlg"/>
+                <constraint firstItem="qAH-HD-YQq" firstAttribute="leading" secondItem="j2W-kg-A5f" secondAttribute="leading" constant="55" id="u3M-vw-W5W"/>
+                <constraint firstItem="LaR-9T-SSa" firstAttribute="leading" secondItem="j2W-kg-A5f" secondAttribute="leading" id="xIi-yv-x9J"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="208.5" y="269.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_b1" width="30" height="30"/>
+        <image name="main_b2" width="30" height="30"/>
+        <image name="main_b3" width="30" height="30"/>
+        <image name="main_b4" width="30" height="30"/>
+        <image name="main_bg" width="320" height="419"/>
+        <image name="main_c1" width="640" height="230"/>
+        <image name="main_c2" width="640" height="230"/>
+        <image name="main_c3" width="640" height="230"/>
+    </resources>
+</document>

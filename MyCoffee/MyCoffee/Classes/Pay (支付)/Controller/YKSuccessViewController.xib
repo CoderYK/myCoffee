@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YKSuccessViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg" translatesAutoresizingMaskIntoConstraints="NO" id="yBx-ia-23g">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜您，购买成功！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIa-3j-iy7">
+                    <rect key="frame" x="90" y="220" width="180" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyFinish" translatesAutoresizingMaskIntoConstraints="NO" id="ht4-5r-Ilp">
+                    <rect key="frame" x="90" y="176" width="32" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="LKK-w9-vqK"/>
+                        <constraint firstAttribute="height" constant="34" id="Rz2-Bf-A1d"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可以回" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euQ-XL-8hf">
+                    <rect key="frame" x="90" y="254" width="60" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1U-ND-dLI">
+                    <rect key="frame" x="240" y="254" width="60" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nas-5a-huh">
+                    <rect key="frame" x="150" y="252" width="90" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Eqr-2e-ThG"/>
+                        <constraint firstAttribute="width" constant="90" id="cms-ff-kFy"/>
+                    </constraints>
+                    <state key="normal" title="我的订单" backgroundImage="wodedingdan">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="backToMyRecored" destination="-1" eventType="touchUpInside" id="wbh-Zb-zbu"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yBx-ia-23g" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2MD-Uz-Nxr"/>
+                <constraint firstItem="euQ-XL-8hf" firstAttribute="top" secondItem="TIa-3j-iy7" secondAttribute="bottom" constant="10" id="CRT-Rc-wXS"/>
+                <constraint firstAttribute="trailing" secondItem="yBx-ia-23g" secondAttribute="trailing" id="Mxk-zu-96J"/>
+                <constraint firstItem="euQ-XL-8hf" firstAttribute="leading" secondItem="TIa-3j-iy7" secondAttribute="leading" id="Omg-gQ-KGc"/>
+                <constraint firstItem="TIa-3j-iy7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="RRf-bR-wSF"/>
+                <constraint firstAttribute="bottom" secondItem="yBx-ia-23g" secondAttribute="bottom" id="bEf-X5-3AT"/>
+                <constraint firstItem="nas-5a-huh" firstAttribute="centerY" secondItem="euQ-XL-8hf" secondAttribute="centerY" id="dNg-x2-YdF"/>
+                <constraint firstItem="ht4-5r-Ilp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="dQm-bd-YLY"/>
+                <constraint firstItem="x1U-ND-dLI" firstAttribute="centerY" secondItem="nas-5a-huh" secondAttribute="centerY" id="hyw-1B-1Cv"/>
+                <constraint firstItem="TIa-3j-iy7" firstAttribute="top" secondItem="ht4-5r-Ilp" secondAttribute="bottom" constant="10" id="i1k-cj-2UZ"/>
+                <constraint firstItem="nas-5a-huh" firstAttribute="leading" secondItem="euQ-XL-8hf" secondAttribute="trailing" id="jQf-yk-Zjo"/>
+                <constraint firstItem="TIa-3j-iy7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="220" id="nLM-Y7-Afu"/>
+                <constraint firstItem="yBx-ia-23g" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wYN-OS-8Ay"/>
+                <constraint firstItem="x1U-ND-dLI" firstAttribute="leading" secondItem="nas-5a-huh" secondAttribute="trailing" id="xTY-jP-S0S"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="270.5" y="402.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="buyFinish" width="64" height="77"/>
+        <image name="main_bg" width="320" height="419"/>
+        <image name="wodedingdan" width="146" height="49"/>
+    </resources>
+</document>

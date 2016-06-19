@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YKBigPictureViewController">
+            <connections>
+                <outlet property="scrollView" destination="wVU-Zd-zhs" id="7OW-ha-CfR"/>
+                <outlet property="view" destination="iN0-l3-epB" id="6AK-DU-a88"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVU-Zd-zhs">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5P-Og-zPY" userLabel="dismiss">
+                    <rect key="frame" x="10" y="40" width="35" height="35"/>
+                    <state key="normal" image="show_image_back_icon"/>
+                    <connections>
+                        <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="fO4-cX-dHv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPo-sW-lUJ" userLabel="save">
+                    <rect key="frame" x="315" y="617" width="50" height="30"/>
+                    <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.75172413793103443" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Cd9-AH-pos"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="保存"/>
+                    <connections>
+                        <action selector="save:" destination="-1" eventType="touchUpInside" id="c0B-bV-tGd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="h5P-Og-zPY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="4Qi-9v-ihN"/>
+                <constraint firstAttribute="bottom" secondItem="wVU-Zd-zhs" secondAttribute="bottom" id="5XN-fP-ISZ"/>
+                <constraint firstAttribute="trailing" secondItem="wVU-Zd-zhs" secondAttribute="trailing" id="ax6-vO-PE9"/>
+                <constraint firstItem="h5P-Og-zPY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="eBo-lw-5VB"/>
+                <constraint firstItem="wVU-Zd-zhs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gOu-Ic-k5Y"/>
+                <constraint firstAttribute="trailing" secondItem="BPo-sW-lUJ" secondAttribute="trailing" constant="10" id="iW2-Ah-7NW"/>
+                <constraint firstAttribute="bottom" secondItem="BPo-sW-lUJ" secondAttribute="bottom" constant="20" id="tcE-1h-gdo"/>
+                <constraint firstItem="wVU-Zd-zhs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="w4b-nb-SGE"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="265.5" y="446.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="show_image_back_icon" width="35" height="35"/>
+    </resources>
+</document>
