@@ -12,4 +12,9 @@
 
 + (instancetype)headerView;
 
+
+@property (assign, nonatomic) double distance;
+
+@property (strong, nonatomic) void(^block)();
+
 @end

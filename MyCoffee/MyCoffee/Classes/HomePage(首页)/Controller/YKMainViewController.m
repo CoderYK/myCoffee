@@ -58,9 +58,6 @@
     
     _myBarbar.delegate = self;
     
-//    NSString *file = [[NSBundle mainBundle] pathForResource:@"menu" ofType:nil];
-//    NSData *menuData = [NSData dataWithContentsOfFile:file];
-//    [menuData writeToFile:@"/Users/yk/Desktop/menu.plist" atomically:YES];
 }
 
 //添加左边按钮
@@ -73,10 +70,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bar_2"] style:UIBarButtonItemStylePlain target:self action: @selector(scanQRCode)];
     
     //标题
-//    self.navigationController.navigationBar.titleTextAttributes = @{
-//                                                                    NSForegroundColorAttributeName:YKMyCoffeeColor,
-//                                                                    NSFontAttributeName:[UIFont systemFontOfSize:25 weight:20]
-//                                                                    };
     self.navigationItem.title = @"欢迎光临";
     
 }

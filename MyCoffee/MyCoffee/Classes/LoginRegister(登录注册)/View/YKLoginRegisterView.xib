@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -131,7 +131,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe6-sL-qXc">
-                    <rect key="frame" x="46" y="192" width="266" height="30"/>
+                    <rect key="frame" x="46" y="162" width="266" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="266" id="KlD-z1-7j8"/>
                         <constraint firstAttribute="height" constant="30" id="p8s-sJ-pDy"/>
@@ -143,44 +143,16 @@
                         <action selector="registerBtnClick" destination="hff-jm-xsh" eventType="touchUpInside" id="r7b-zX-xoc"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZI-mw-czW">
-                    <rect key="frame" x="232" y="152" width="75" height="30"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="获取验证码">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="getCodeClick:" destination="hff-jm-xsh" eventType="touchUpInside" id="UN8-HU-quc"/>
-                    </connections>
-                </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ko1-gh-kIC">
-                    <rect key="frame" x="51" y="152" width="120" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="0.31896551724137934" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="120" id="5jv-iJ-gCp"/>
-                    </constraints>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Ko1-gh-kIC" firstAttribute="leading" secondItem="s8w-fM-Ghv" secondAttribute="leading" id="2kZ-es-29I"/>
                 <constraint firstItem="LcX-41-MtL" firstAttribute="centerX" secondItem="Y1W-nK-YNy" secondAttribute="centerX" id="7s7-Xu-OgZ"/>
-                <constraint firstItem="Ko1-gh-kIC" firstAttribute="top" secondItem="LcX-41-MtL" secondAttribute="bottom" constant="10" id="GVH-Lj-H5a"/>
-                <constraint firstItem="2ZI-mw-czW" firstAttribute="top" secondItem="LcX-41-MtL" secondAttribute="bottom" constant="10" id="J1B-iA-wMM"/>
-                <constraint firstItem="Pe6-sL-qXc" firstAttribute="top" secondItem="LcX-41-MtL" secondAttribute="bottom" constant="50" id="KQW-3p-Fnf"/>
+                <constraint firstItem="Pe6-sL-qXc" firstAttribute="top" secondItem="LcX-41-MtL" secondAttribute="bottom" constant="20" id="KQW-3p-Fnf"/>
                 <constraint firstItem="Pe6-sL-qXc" firstAttribute="centerX" secondItem="Y1W-nK-YNy" secondAttribute="centerX" id="QlF-Zu-c5t"/>
-                <constraint firstItem="Pe6-sL-qXc" firstAttribute="top" secondItem="Ko1-gh-kIC" secondAttribute="bottom" constant="10" id="WDy-Kj-suL"/>
-                <constraint firstItem="2ZI-mw-czW" firstAttribute="trailing" secondItem="s8w-fM-Ghv" secondAttribute="trailing" id="ayO-mp-Zoq"/>
-                <constraint firstItem="Pe6-sL-qXc" firstAttribute="top" secondItem="2ZI-mw-czW" secondAttribute="bottom" constant="10" id="laA-Ud-Bjs"/>
                 <constraint firstItem="LcX-41-MtL" firstAttribute="top" secondItem="Y1W-nK-YNy" secondAttribute="top" constant="50" id="sBc-aY-G61"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="codeTextField" destination="Ko1-gh-kIC" id="j6X-6l-jR6"/>
                 <outlet property="loginButton" destination="Pe6-sL-qXc" id="tVt-zw-Lvf"/>
                 <outlet property="registerAccountTextField" destination="v9U-dQ-vZE" id="P0E-EW-1qa"/>
                 <outlet property="registerPwdTextField" destination="s8w-fM-Ghv" id="9MO-8n-v2r"/>

@@ -81,6 +81,8 @@
     //设置地图类型
     mapView.mapType = MKMapTypeStandard;
 }
+
+
 /**
  *  根据地理名确定地理坐标
  */
@@ -133,23 +135,6 @@
         
     }
 }
-
-#pragma mark -------------------
-#pragma mark CLLocationManagerDelegate
-//只要位置发生改变机会执行（只要定位到相应地位置）
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-{
-    CLLocation *location = [locations firstObject];//取出第一个位置
-    CLLocationCoordinate2D coordinate = location.coordinate;
-    //NSLog(@"经度：%f,纬度：%f,海拔：%f,航向：%f,行走速度：%f",coordinate.longitude, coordinate.latitude, location.altitude, location.course, location.speed);
-    
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 
 
 @end

@@ -9,6 +9,12 @@
 #import "YKTopLoginView.h"
 #import "YKLoginRegistrViewController.h"
 
+@interface YKTopLoginView ()
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UIButton *loginTitleView;
+
+@end
+
 @implementation YKTopLoginView
 
 + (instancetype)topLoginView

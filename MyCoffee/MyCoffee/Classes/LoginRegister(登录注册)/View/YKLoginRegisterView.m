@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet YKLoginTextField *pwdTextField;
 @property (weak, nonatomic) IBOutlet YKLoginTextField *registerAccountTextField;
 @property (weak, nonatomic) IBOutlet YKLoginTextField *registerPwdTextField;
-@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+
 
 @end
 
@@ -79,36 +79,13 @@
         
     }];
 }
-//获取验证码
-- (IBAction)getCodeClick:(id)sender {
-    
-    if (self.registerAccountTextField.text.length == 11) {
-        [SVProgressHUD showWithStatus:@"正在发送消息"];
-    } else
-    {
-        [SVProgressHUD showErrorWithStatus:@"请输入正确手机号"];
-        return;
-    }
-    
-    NSDictionary *parameters = @{
-                                 @"phone":self.registerAccountTextField.text
-                                 };
-    
-    [self.mgr POST:YKBaseUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [SVProgressHUD showSuccessWithStatus:@"短信发送成功，请注意查收！"];
-        NSLog(@"%@",responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD showErrorWithStatus:@"获取验证码失败，请重试！"];
-        NSLog(@"%@",error);
-        
-    }];
-}
+
+
 
 //注册
 - (IBAction)registerBtnClick {
     
-    if ((self.registerAccountTextField.text.length == 11) && (self.registerPwdTextField.text.length >= 6) && self.codeTextField.text.length) {
+    if ((self.registerAccountTextField.text.length == 11) && (self.registerPwdTextField.text.length >= 6)) {
         [SVProgressHUD showWithStatus:@"正在注册"];
     } else
     {
@@ -117,7 +94,6 @@
     }
     
     NSDictionary *parameters = @{
-                                 @"code":self.codeTextField.text,
                                  @"password":self.registerPwdTextField.text,
                                  @"phone":self.registerAccountTextField.text
                                  };

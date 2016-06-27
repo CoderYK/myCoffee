@@ -10,8 +10,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "YKAnnotation.h"
-#import "YKRecordView.h"
 #import "YKHeadViewController.h"
+#import "YKHeaderView.h"
 
 @interface YKMapViewController ()<CLLocationManagerDelegate,MKMapViewDelegate>
 /**
@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (strong, nonatomic) CLPlacemark *placemark;
 @property (weak, nonatomic) id observer;
+@property (weak, nonatomic) YKHeaderView *headVc;
 
 @end
 
@@ -60,6 +61,9 @@
     //初始化控件
     [self initGUI];
     
+    // 计算两个地点的距离
+    
+    
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -89,12 +93,11 @@
     //设置地图类型
     mapView.mapType = MKMapTypeStandard;
     
-    //添加记录 View
-    YKRecordView *recordView = [YKRecordView recordView];
-    recordView.frame = CGRectMake(0, CGRectGetMaxY(mapView.frame), YKScreenW, YKScreenH - CGRectGetMaxY(mapView.frame));
-    [self.view addSubview:recordView];
+    YKHeaderView *headVc = [YKHeaderView headerView];
+    headVc.frame = CGRectMake(0, CGRectGetMaxY(mapView.frame), YKScreenW, 60);
+    self.headVc = headVc;
+    [self.view addSubview:headVc];
     
-
 }
 
 
@@ -109,8 +112,7 @@
     [_mapView addAnnotation:annotation1];
 }
 
-#pragma mark -------------------
-#pragma mark MKMapViewDelegate
+
 
 #pragma mark -------------------
 #pragma mark 搜索定位
@@ -173,13 +175,24 @@
 #pragma mark -------------------
 #pragma mark CLLocationManagerDelegate
 //只要位置发生改变机会执行（只要定位到相应地位置）
-//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-//{
-//    CLLocation *location = [locations firstObject];//取出第一个位置
-//    CLLocationCoordinate2D coordinate = location.coordinate;
-//    //NSLog(@"经度：%f,纬度：%f,海拔：%f,航向：%f,行走速度：%f",coordinate.longitude, coordinate.latitude, location.altitude, location.course, location.speed);
-//    
-//}
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *location = [locations firstObject];//取出第一个位置
+    
+    [self.geocoder geocodeAddressString:@"广东省湛江市湖光岩风景区" completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark *plcs = [placemarks firstObject];
+        
+        self.headVc.distance = [location distanceFromLocation: plcs.location];
+        
+        
+    }];
+    
+   
+    
+}
+
+
+
 //
 ///**
 // *  当用户进入某个区域的时候就会调用
@@ -200,10 +213,6 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 

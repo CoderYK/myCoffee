@@ -9,11 +9,13 @@
 #import "YKHeaderView.h"
 #import "YKHeadingManager.h"
 
+
 @interface YKHeaderView ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleView;
 @property (weak, nonatomic) IBOutlet UILabel *phoneView;
 @property (weak, nonatomic) IBOutlet UILabel *detialView;
+@property (weak, nonatomic) IBOutlet UILabel *distanceView;
 
 @end
 
@@ -22,6 +24,14 @@
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    _distanceView.text = @"0.0km";
+}
+
+- (void)setDistance:(double)distance{
+    _distance = distance;
+    
+    _distanceView.text = [NSString stringWithFormat:@"%.2f km",distance / 1000];
 }
 
 + (instancetype)headerView
