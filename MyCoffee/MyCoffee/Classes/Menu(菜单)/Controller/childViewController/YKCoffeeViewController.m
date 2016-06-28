@@ -50,10 +50,4 @@ static NSString * const ID = @"cell";
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-
-
 @end

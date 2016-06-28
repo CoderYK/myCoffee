@@ -140,9 +140,6 @@ static NSString * const albumTitle = @"myCoffee";
     return YES;
 }
 
-/*
- bug:dismiss 后 cell 的高度不对
- */
 
 
 

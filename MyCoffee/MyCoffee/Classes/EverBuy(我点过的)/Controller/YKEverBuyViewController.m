@@ -7,10 +7,11 @@
 //
 
 #import "YKEverBuyViewController.h"
-#import "YKDrinkItem.h"
+#import "YKShopItem.h"
 #import <MJExtension/MJExtension.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "YKEverBuyCell.h"
+#import "YKDataManager.h"
 
 static NSString * const ID = @"cell";
 @interface YKEverBuyViewController ()
@@ -32,36 +33,25 @@ static NSString * const ID = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     self.tableView.backgroundColor = YKMyCoffeeColor;
     self.title = @"消费记录";
     
     //注册 cell
     [self.tableView registerNib:[UINib nibWithNibName:@"YKEverBuyCell" bundle:nil] forCellReuseIdentifier:ID];
-    
-    //字典转模型
-    if ([self getData]) {
-        
-        self.itemArr = [YKDrinkItem mj_objectArrayWithKeyValuesArray:[self getData]];
-    } else
-    {
-        [SVProgressHUD showInfoWithStatus:@"暂无消费记录哦☺\n 赶紧去下单吧！"];
-    }
 }
 
-//提取数据
-- (NSArray *)getData
+- (void)viewWillAppear:(BOOL)animated
 {
-    NSString *homePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    [super viewWillAppear:animated];
     
-    NSString *filePath = [homePath stringByAppendingPathComponent:@"everBuy.JSON"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    self.itemArr = [YKShopItem mj_objectArrayWithKeyValuesArray:[[YKDataManager shareYKDataManager] queryAll]];
     
-    if (data) {
-        
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        return dict[@"everBuy"];
+    
+    if (self.itemArr.count == 0) {
+        [SVProgressHUD showInfoWithStatus:@"暂无消费记录哦☺\n 赶紧去下单吧！"];
     }
-    return nil;
 }
 
 #pragma mark - Table view data source
@@ -76,7 +66,7 @@ static NSString * const ID = @"cell";
     
     cell.backgroundColor = YKBgColor;
     
-    YKDrinkItem *item = self.itemArr[indexPath.row];
+    YKShopItem *item = self.itemArr[indexPath.row];
     cell.item = item;
     
     return cell;
@@ -86,5 +76,32 @@ static NSString * const ID = @"cell";
 {
     return 120;
 }
+
+
+#pragma mark - Table view delegate
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewRowAction *share = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"分享" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        NSLog(@"分享给好友");
+    }];
+    
+    share.backgroundColor = [UIColor orangeColor];
+    
+    UITableViewRowAction *delect = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        NSLog(@"删除");
+        
+        YKShopItem *item = self.itemArr[indexPath.row];
+        
+        [[YKDataManager shareYKDataManager] delectData:item.buyTime];
+        
+        [self.itemArr removeObjectAtIndex:indexPath.row];
+        
+        [tableView reloadData];
+    }];
+    
+    
+    return @[delect, share];
+}
+
 
 @end

@@ -104,35 +104,10 @@ static int count = 0;
 //下单
 - (IBAction)orderButtonClick:(id)sender {
     
-    //把用户的购物信息转换为 JSON 字符串
-    //1. 初始化可变字符串，存放最终生成json字串
-    NSMutableString *jsonString = [[NSMutableString alloc] initWithString:@"{\"everBuy\":["];
-    
-    for(YKDrinkItem *item in self.itemArr){
-        
-        //2. 遍历数组，取出键值对并按json格式存放
-        NSString *string;
-        
-        string  = [NSString stringWithFormat:
-                   @"{\"price\":\"%@\",\"goods_name\":\"%@\",\"logo_pic\":\"%@\"},",item.price,item.goods_name,item.logo_pic];
-        
-        [jsonString appendString:string];
-        
-    }
-    // 3. 获取末尾逗号所在位置
-    NSUInteger location = [jsonString length]-1;
-    
-    NSRange range       = NSMakeRange(location, 1);
-    
-    // 4. 将末尾逗号换成结束的]}
-    [jsonString replaceCharactersInRange:range withString:@"]}"];
-    
-    NSData *data = [jsonString mj_JSONData];
-    
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"YKPayViewController" bundle:nil];
     YKPayViewController *payVc = [storyBoard instantiateInitialViewController];
     payVc.totalPrice = self.totalPriceView.text;
-    payVc.data = data;
+    payVc.itemArr = self.itemArr;
     YKNavigationController *nav = [[YKNavigationController alloc] initWithRootViewController:payVc];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 

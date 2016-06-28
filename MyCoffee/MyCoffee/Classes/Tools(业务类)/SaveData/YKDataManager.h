@@ -11,11 +11,37 @@
 @interface YKDataManager : NSObject
 
 /**
- *  保存 JSON 数据到沙盒中
+ *  数据管理者单例对象
  *
- *  @param jsonData 需要保存的 JSON 数据
- *  @param fileName 保存的路径
+ *  @return 数据管理者单例对象
  */
-+(void)writefile:(NSData *)jsonData fileName:(NSString *)fileName;
++ (instancetype)shareYKDataManager;
+
+/**
+ *  创建商品表格
+ */
+//- (void)createTableWithSql:(NSString *)sql;
+
+/**
+ *  插入商品
+ */
+- (void)insertTableWithSql:(NSString *)sql;
+
+/**
+ *  查询表格
+ */
+- (NSMutableArray *)queryAll;
+
+/**
+ *  根据时间戳删除数据
+ *
+ *  @param time 时间戳
+ */
+- (void)delectData:(NSString *)time;
+
+/**
+ *  删除已存在的表格
+ */
+- (void)dropTable;
 
 @end

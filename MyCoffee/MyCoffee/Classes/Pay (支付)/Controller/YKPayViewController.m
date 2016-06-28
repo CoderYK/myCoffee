@@ -13,15 +13,18 @@
 #import "YKSuccessViewController.h"
 #import "NSString+Hash.h"
 #import "YKDataManager.h"
+#import "YKDrinkItem.h"
 
 @interface YKPayViewController ()
 @property (strong, nonatomic) QRCodeReaderViewController *reader;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *orderCode;
+
 @end
 
 @implementation YKPayViewController
+
 #pragma mark -------------------
 #pragma mark 生命周期
 - (void)viewDidLoad {
@@ -100,13 +103,26 @@
     typeof(self)weakSelf = self;
     //弹出指纹认证
     [YKTouchIDAuthodManager authodYourTouchIDCompleted:^{
-        [YKDataManager writefile:_data fileName:@"everBuy.JSON"];
+
+        for (YKDrinkItem *item in _itemArr) {
+           
+            YKDataManager *dataManager = [YKDataManager shareYKDataManager];
+            
+            NSDate *date = [NSDate date];
+            NSDateFormatter *ftr = [[NSDateFormatter alloc] init];
+            ftr.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+            
+            item.time = [ftr stringFromDate:date];
+                        
+            // 插入商品
+            NSString *sql = [NSString stringWithFormat:@"insert into t_shops(goods_name, logo_pic, price, buyTime) values ('%@', '%@', '%@', '%@')", item.goods_name, item.logo_pic, item.price, item.time];
+            [dataManager insertTableWithSql:sql];
+           
+        }
+        
         [weakSelf.navigationController pushViewController:[[YKSuccessViewController alloc] init] animated:YES];
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 @end

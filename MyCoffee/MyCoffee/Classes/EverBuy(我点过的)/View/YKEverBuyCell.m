@@ -8,7 +8,7 @@
 
 #import "YKEverBuyCell.h"
 #import "YKloadImageManager.h"
-#import "YKDrinkItem.h"
+#import "YKShopItem.h"
 
 @interface YKEverBuyCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *foodImageView;
@@ -26,7 +26,7 @@
     self.autoresizingMask = UIViewAutoresizingNone;
 }
 
-- (void)setItem:(YKDrinkItem *)item
+- (void)setItem:(YKShopItem *)item
 {
     _item = item;
     
@@ -34,11 +34,7 @@
     [YKloadImageManager sd_setImageWithURL:item.logo_pic placeholderImage:nil options:SDWebImageRetryFailed progress:nil completed:nil imageView:self.foodImageView];
     self.priceView.text = [NSString stringWithFormat:@"￥%@",item.price];
     
-    NSDate *date = [NSDate date];
-    NSDateFormatter *ftr = [[NSDateFormatter alloc] init];
-    ftr.dateFormat = @"yyyy-mm-dd HH:MM:ss";
-    
-    self.timeView.text = [ftr stringFromDate:date];
+    self.timeView.text = item.buyTime;
 }
 
 @end

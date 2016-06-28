@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class YKDrinkItem;
+@class YKShopItem;
 @interface YKEverBuyCell : UITableViewCell
 
-@property (strong, nonatomic) YKDrinkItem *item;
+@property (strong, nonatomic) YKShopItem *item;
 
 @end

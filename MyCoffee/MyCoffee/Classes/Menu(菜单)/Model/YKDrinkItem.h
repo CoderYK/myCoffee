@@ -29,4 +29,8 @@
 @property (assign, nonatomic) NSInteger number;
 
 
+//时间
+@property (strong, nonatomic) NSString *time;
+
+
 @end

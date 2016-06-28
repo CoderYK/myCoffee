@@ -11,6 +11,7 @@
 @interface YKPayViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *totalPrice;
-@property (strong, nonatomic) NSData *data;
+
+@property (strong, nonatomic) NSMutableArray *itemArr;
 
 @end
