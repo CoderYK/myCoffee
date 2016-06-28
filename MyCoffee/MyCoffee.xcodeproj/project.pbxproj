@@ -75,6 +75,10 @@
 		59C656521D203DA400A87676 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C656431D203DA400A87676 /* libWeiboSDK.a */; };
 		59C656531D203DA400A87676 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 59C6564E1D203DA400A87676 /* WeiboSDK.bundle */; };
 		59CA1E0E1D227844006E58F1 /* YKShopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CA1E0D1D227844006E58F1 /* YKShopItem.m */; };
+		59CA1E171D22B85E006E58F1 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CA1E101D22B85E006E58F1 /* libSocialWechat.a */; };
+		59CA1E181D22B85E006E58F1 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CA1E111D22B85E006E58F1 /* libWeChatSDK.a */; };
+		59CA1E191D22B85E006E58F1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 59CA1E121D22B85E006E58F1 /* README.txt */; };
+		59CA1E1B1D22C41F006E58F1 /* xingxing.png in Resources */ = {isa = PBXBuildFile; fileRef = 59CA1E1A1D22C41F006E58F1 /* xingxing.png */; };
 		59CF00D71CD8A7360058C719 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CF00D61CD8A7360058C719 /* main.m */; };
 		59CF00DA1CD8A7360058C719 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CF00D91CD8A7360058C719 /* AppDelegate.m */; };
 		59CF00E21CD8A7360058C719 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59CF00E11CD8A7360058C719 /* Assets.xcassets */; };
@@ -228,6 +232,14 @@
 		59C656501D203DA400A87676 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		59CA1E0C1D227844006E58F1 /* YKShopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKShopItem.h; sourceTree = "<group>"; };
 		59CA1E0D1D227844006E58F1 /* YKShopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKShopItem.m; sourceTree = "<group>"; };
+		59CA1E101D22B85E006E58F1 /* libSocialWechat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWechat.a; sourceTree = "<group>"; };
+		59CA1E111D22B85E006E58F1 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		59CA1E121D22B85E006E58F1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		59CA1E131D22B85E006E58F1 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		59CA1E141D22B85E006E58F1 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		59CA1E151D22B85E006E58F1 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		59CA1E161D22B85E006E58F1 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		59CA1E1A1D22C41F006E58F1 /* xingxing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = xingxing.png; path = UMSDK/UMSocial_Sdk_5.2.1/xingxing.png; sourceTree = "<group>"; };
 		59CF00D21CD8A7360058C719 /* MyCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CF00D61CD8A7360058C719 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../../main.m; sourceTree = "<group>"; };
 		59CF00D81CD8A7360058C719 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -288,6 +300,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C656401D203BAB00A87676 /* libz.tbd in Frameworks */,
+				59CA1E171D22B85E006E58F1 /* libSocialWechat.a in Frameworks */,
+				59CA1E181D22B85E006E58F1 /* libWeChatSDK.a in Frameworks */,
 				59C6563E1D203BA000A87676 /* libstdc++.tbd in Frameworks */,
 				59C6563C1D203B9200A87676 /* CoreTelephony.framework in Frameworks */,
 				59C656521D203DA400A87676 /* libWeiboSDK.a in Frameworks */,
@@ -565,6 +579,7 @@
 			children = (
 				59C656091D2039CE00A87676 /* UMSocial_Sdk_5.2.1 */,
 				59C656411D203DA400A87676 /* SinaSSO */,
+				59CA1E0F1D22B85E006E58F1 /* Wechat */,
 			);
 			path = UMSDK;
 			sourceTree = "<group>";
@@ -637,6 +652,20 @@
 			path = ../SinaSSO;
 			sourceTree = "<group>";
 		};
+		59CA1E0F1D22B85E006E58F1 /* Wechat */ = {
+			isa = PBXGroup;
+			children = (
+				59CA1E101D22B85E006E58F1 /* libSocialWechat.a */,
+				59CA1E111D22B85E006E58F1 /* libWeChatSDK.a */,
+				59CA1E121D22B85E006E58F1 /* README.txt */,
+				59CA1E131D22B85E006E58F1 /* UMSocialWechatHandler.h */,
+				59CA1E141D22B85E006E58F1 /* WechatAuthSDK.h */,
+				59CA1E151D22B85E006E58F1 /* WXApi.h */,
+				59CA1E161D22B85E006E58F1 /* WXApiObject.h */,
+			);
+			path = Wechat;
+			sourceTree = "<group>";
+		};
 		59CF00C91CD8A7360058C719 = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +687,7 @@
 		59CF00D41CD8A7360058C719 /* MyCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				59CA1E1A1D22C41F006E58F1 /* xingxing.png */,
 				59C656081D2039C100A87676 /* UMSDK */,
 				59026F0D1CE71E8500CCD17D /* DataSource */,
 				59CF00EC1CD8A7720058C719 /* Classes */,
@@ -1040,6 +1070,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C656291D2039CE00A87676 /* UMShareEditViewController.xib in Resources */,
+				59CA1E1B1D22C41F006E58F1 /* xingxing.png in Resources */,
 				59026F141CE71E8500CCD17D /* milk.plist in Resources */,
 				59C656261D2039CE00A87676 /* UMSCommentDetailController.xib in Resources */,
 				59026F231CE7405A00CCD17D /* YKShopView.xib in Resources */,
@@ -1052,6 +1083,7 @@
 				59C6562C1D2039CE00A87676 /* UMSnsAccountViewController.xib in Resources */,
 				59E74B771CDCE831003560F2 /* YKTopLoginView.xib in Resources */,
 				59C656531D203DA400A87676 /* WeiboSDK.bundle in Resources */,
+				59CA1E191D22B85E006E58F1 /* README.txt in Resources */,
 				5936881C1CEDB70800CDA5EF /* YKEverBuyCell.xib in Resources */,
 				59026F121CE71E8500CCD17D /* chocl.plist in Resources */,
 				59C6562B1D2039CE00A87676 /* UMSLoginViewController.xib in Resources */,
@@ -1293,6 +1325,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyCoffee/UMSDK/UMSocial_Sdk_5.2.1",
 					"$(PROJECT_DIR)/MyCoffee/SinaSSO",
+					"$(PROJECT_DIR)/MyCoffee/UMSDK/Wechat",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coderYK.myCoffee;
@@ -1317,6 +1350,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyCoffee/UMSDK/UMSocial_Sdk_5.2.1",
 					"$(PROJECT_DIR)/MyCoffee/SinaSSO",
+					"$(PROJECT_DIR)/MyCoffee/UMSDK/Wechat",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coderYK.myCoffee;

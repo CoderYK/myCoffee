@@ -12,9 +12,12 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "YKEverBuyCell.h"
 #import "YKDataManager.h"
+#import "UMSocialData.h"
+#import "UMSocialSnsService.h"
+#import "UMSocialControllerService.h"
 
 static NSString * const ID = @"cell";
-@interface YKEverBuyViewController ()
+@interface YKEverBuyViewController ()<UMSocialUIDelegate>
 
 @property (strong, nonatomic) NSMutableArray *itemArr;
 
@@ -81,14 +84,28 @@ static NSString * const ID = @"cell";
 #pragma mark - Table view delegate
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    typeof(self)weakSelf = self;
     UITableViewRowAction *share = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"分享" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        NSLog(@"分享给好友");
+        
+        YKShopItem *item = self.itemArr[indexPath.row];
+        
+        [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:item.logo_pic];
+        [UMSocialData defaultData].extConfig.title = @"你的好友远坤请你一起来喝咖啡!";
+        
+        UIImage *shareImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"xingxing" ofType:@"png"]];
+    
+        [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"576fedcbe0f55a0de000572a"
+                                          shareText:@"来自 coderYK 的 myCoffee 分享.http://www.umeng.com/social"
+                                         shareImage:shareImage
+                                    shareToSnsNames:nil
+                                           delegate:weakSelf];
+        
     }];
     
     share.backgroundColor = [UIColor orangeColor];
     
     UITableViewRowAction *delect = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        NSLog(@"删除");
         
         YKShopItem *item = self.itemArr[indexPath.row];
         

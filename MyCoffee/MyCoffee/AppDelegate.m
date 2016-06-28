@@ -13,6 +13,7 @@
 #import "YKNavigationController.h"
 #import "UMSocial.h"
 #import "UMSocialSinaSSOHandler.h"
+#import "UMSocialWechatHandler.h"
 
 static NSString * const AppKey = @"576fedcbe0f55a0de000572a";
 
@@ -27,6 +28,9 @@ static NSString * const AppKey = @"576fedcbe0f55a0de000572a";
     
     // 初始化友盟 SDK
     [self setupAppID];
+    
+    // 对未安装客户端平台进行隐藏
+    //[UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]];
     
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -59,6 +63,9 @@ static NSString * const AppKey = @"576fedcbe0f55a0de000572a";
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:AppKey];
     
+    //设置微信AppId，设置分享url，默认使用友盟的网址
+    [UMSocialWechatHandler setWXAppId:@"wxdc1e388c3822c80b" appSecret:@"a393c1527aaccb95f3a4c88d6d1455f6" url:@"http://www.umeng.com/social"];
+    
     
     //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。需要 #import "UMSocialSinaSSOHandler.h"
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1746772904"
@@ -88,9 +95,13 @@ static NSString * const AppKey = @"576fedcbe0f55a0de000572a";
     return result;
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application{
-    
-    [UMSocialSnsService  applicationDidBecomeActive];
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
 }
 
 @end
